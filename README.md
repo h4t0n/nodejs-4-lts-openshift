@@ -1,79 +1,59 @@
-Running a custom/latest Node[.js] version on Red Hat's OpenShift PaaS
-====================================================================
-This git repository is a sample Node application along with the
-"orchestration" bits to help you run the latest or a custom version
-of Node on Red Hat's OpenShift PaaS.
+# Running the latest (4.2.x) stable Node[.js] version on Red Hat's OpenShift PaaS
+This git repository is a sample Node application along with the "orchestration" bits to help you run the latest (or a custom) version of Node on Red Hat's OpenShift PaaS.
 
+(Latest) Version: 4.2.1
 
-Selecting a Node version to install/use
----------------------------------------
-
-To select the version of Node.js that you want to run, just edit or add
-a version to the .openshift/markers/NODEJS_VERSION file.
-
-    Example: To install Node.js version 0.12.5, you can run:
-       $ echo 0.12.5 >> .openshift/markers/NODEJS_VERSION
-
-    Or alternatively, edit the ```.openshift/markers/NODEJS_VERSION``` file
-    in your favorite editor aka vi ;^)
-
-
-The action_hooks in this application will use that NODEJS_VERSION marker
-file to download and extract that Node version if it is available on
-nodejs.org and will automatically set the paths up to use the node/npm
-binaries from that install directory.
-
-     See: .openshift/action_hooks/ for more details.
-
-    Note: The last non-blank line in the .openshift/markers/NODEJS_VERSION
-          file.determines the version it will install.
-
-
-Okay, now onto how can you get a custom Node.js version running
-on OpenShift.
-
-
-Steps to get a custom Node.js version running on OpenShift
-----------------------------------------------------------
-
-Create an account at http://openshift.redhat.com/
+## Steps to get the latest Node.js version running on OpenShift
+Create an account at [http://openshift.redhat.com/](http://openshift.redhat.com/)
 
 Create a namespace, if you haven't already do so
 
-    rhc domain create <yournamespace>
+```
+rhc domain create <yournamespace>
+```
 
-Create a nodejs application (you can name it anything via -a)
+Create a nodejs application (you can name it anything via -a, -t here is   used to start with the default supported OpenShift nodejs application)
 
-    rhc app create -a palinode  -t nodejs-0.10
+```
+rhc app create -a node4  -t nodejs-0.10
+```
 
-Add this `github nodejs-custom-version-openshift` repository
+Add this `github nodejs-4-stable-openshift` repository to the OpenShift git project remote
 
-    cd palinode
-    git remote add upstream -m master git://github.com/ramr/nodejs-custom-version-openshift.git
-    git pull -s recursive -X theirs upstream master
+```
+cd node4
+git remote add github -m master git://github.com/ramr/nodejs-custom-version-openshift.git
+```
 
-Optionally, specify the custom version of Node.js you want to run with
-(Default is v0.12.5).
-If you want to more later version of Node (example v0.12.42), you can change
-to that by just writing it to the end of the NODEJS_VERSION file and
-committing that change.
+Get updates from the remote with merge conflicts properly resolved (NB: don't run `git pull github` alone)     
 
-    echo 0.12.42 >> .openshift/markers/NODEJS_VERSION
-    #
-    # Or alternatively, edit the .openshift/markers/NODEJS_VERSION file
-    # in your favorite editor aka vi ;^)
-    #
-    # Note: 0.12.42 doesn't exist (as yet) and is a fictitious version
-    #       mentioned here solely for demonstrative purposes.
-    #
-    git commit . -m 'use Node version 0.12.42'
+```
+git pull -s recursive -X theirs github master
+```
 
-Then push the repo to OpenShift
+Push the updates coming from `github nodejs-4-stable-openshift` into the OpenShift git project.
 
-    git push
+```
+git push
+```
 
 That's it, you can now checkout your application at:
 
-    http://palinode-$yournamespace.rhcloud.com
-    ( See env @ http://palinode-$yournamespace.rhcloud.com/env )
+  [http://node4-$yournamespace.rhcloud.com](http://node4-$yournamespace.rhcloud.com)   ( See env @ [http://node-$yournamespace.rhcloud.com/env](http://node-$yournamespace.rhcloud.com/env) )
 
+If you want another version of Node (example v0.12.x), you can change to that by just writing it to the end of the NODEJS_VERSION file and committing that change.
+
+```
+echo 0.12.7 >> .openshift/markers/NODEJS_VERSION
+#
+# Or alternatively, edit the .openshift/markers/NODEJS_VERSION file
+# in your favorite editor aka vi ;^)
+#
+#
+git commit . -m 'use Node version 0.12.7'
+```
+
+Then push the repo to OpenShift with `git push`
+
+#### More info
+This repository is a fork of [Ramr nodejs custom version](https://github.com/ramr/nodejs-custom-version-openshift). See it for  documentation about Openshift hooks or other.
