@@ -22,7 +22,7 @@ Add this `github nodejs-4-stable-openshift` repository to the OpenShift git proj
 
 ```
 cd node4
-git remote add github -m master git://github.com/ramr/nodejs-custom-version-openshift.git
+git remote add github -m master https://github.com/h4t0n/nodejs-4-stable-openshift.git
 ```
 
 Get updates from the remote with merge conflicts properly resolved (NB: don't run `git pull github` alone)     
