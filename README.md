@@ -1,7 +1,7 @@
 # Running the latest (4.2.x) stable Node[.js] version on Red Hat's OpenShift PaaS
 This git repository is a sample Node application along with the "orchestration" bits to help you run the latest (or a custom) version of Node on Red Hat's OpenShift PaaS.
 
-(Latest) Version: 4.2.1
+(Current) NodeJS Version: 4.2.1
 
 ## Steps to get the latest Node.js version running on OpenShift
 Create an account at [http://openshift.redhat.com/](http://openshift.redhat.com/)
@@ -39,7 +39,8 @@ git push
 
 That's it, you can now checkout your application at:
 
-  [http://node4-$yournamespace.rhcloud.com](http://node4-$yournamespace.rhcloud.com)   ( See env @ [http://node-$yournamespace.rhcloud.com/env](http://node-$yournamespace.rhcloud.com/env) )
+  [http://node4-$yournamespace.rhcloud.com](http://node4-$yournamespace.rhcloud.com)
+  ( See env @ [http://node-$yournamespace.rhcloud.com/env](http://node-$yournamespace.rhcloud.com/env) )
 
 If you want another version of Node (example v0.12.x), you can change to that by just writing it to the end of the NODEJS_VERSION file and committing that change.
 
@@ -55,5 +56,5 @@ git commit . -m 'use Node version 0.12.7'
 
 Then push the repo to OpenShift with `git push`
 
-#### More info
-This repository is a fork of [Ramr nodejs custom version](https://github.com/ramr/nodejs-custom-version-openshift). See it for  documentation about Openshift hooks or other.
+## Additional information
+This repository is a fork of [Ramr nodejs custom version](https://github.com/ramr/nodejs-custom-version-openshift). See it for documentation about Openshift hooks or if you want additional information.

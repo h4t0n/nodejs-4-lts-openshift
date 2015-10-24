@@ -1,35 +1,38 @@
 {
-  "name": "nodejs-Custom-Version-Sample",
-  "version": "1.0.1",
-  "description": "OpenShift Node.js Custom Version Sample Application",
+  "name": "nodejs-4-stable-Sample",
+  "version": "1.0.0",
+  "description": "OpenShift Node.js 4 Stable Application",
   "keywords": [
     "OpenShift",
     "Node.js",
     "application",
-    "openshift"
+    "openshift",
+    "express"
   ],
   "author": {
-    "name": "ramr",
-    "email": "ramr@example.org",
-    "url":  "http://www.openshift.com/"
+    "name": "Andrea Tarquini",
+    "email": "tarquiniandreagm@gmail.com",
+    "url": "https://blog.h4t0n.com"
   },
-  "homepage": "http://www.openshift.com/",
+  "homepage": "http://blog.h4t0n.com",
   "repository": {
     "type": "git",
-    "url": "https://gitub.com/ramr/nodejs-custom-version-openshift"
+    "url": "https://github.com/h4t0n/nodejs-4-stable-openshift.git"
   },
-
   "engines": {
-    "node": ">= 0.6.0",
+    "node": ">= 4.2.1",
     "npm": ">= 1.0.0"
   },
-
   "dependencies": {
-    "express": "*"
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "serve-favicon": "^2.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "debug": "^2.2.0"
+  },
   "bundleDependencies": [],
-
   "private": true,
   "main": "server.js"
 }
