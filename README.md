@@ -1,4 +1,4 @@
-# Running the latest (4.2.x) stable Node[.js] version on Red Hat's OpenShift PaaS
+# Running the latest (4.2.x) LTS Node[.js] version on Red Hat's OpenShift PaaS
 This git repository is a sample Node application along with the "orchestration" bits to help you run the latest (or a custom) version of Node on Red Hat's OpenShift PaaS.
 
 (Current) NodeJS Version: 4.2.1
@@ -18,11 +18,11 @@ Create a nodejs application (you can name it anything via -a, -t here is   used 
 rhc app create -a node4  -t nodejs-0.10
 ```
 
-Add this `github nodejs-4-stable-openshift` repository to the OpenShift git project remote
+Add this `github nodejs-4-lts-openshift` repository to the OpenShift git project remote
 
 ```
 cd node4
-git remote add github -m master https://github.com/h4t0n/nodejs-4-stable-openshift.git
+git remote add github -m master https://github.com/h4t0n/nodejs-4-lts-openshift.git
 ```
 
 Get updates from the remote with merge conflicts properly resolved (NB: don't run `git pull github` alone)     
@@ -31,7 +31,7 @@ Get updates from the remote with merge conflicts properly resolved (NB: don't ru
 git pull -s recursive -X theirs github master
 ```
 
-Push the updates coming from `github nodejs-4-stable-openshift` into the OpenShift git project.
+Push the updates coming from `github nodejs-4-lts-openshift` into the OpenShift git project.
 
 ```
 git push
