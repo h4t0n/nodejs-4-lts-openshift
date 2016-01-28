@@ -1,7 +1,7 @@
 # Running the latest (4.2.x) LTS Node[.js] version on Red Hat's OpenShift PaaS
 This git repository is a sample Node application along with the "orchestration" bits to help you run the latest (or a custom) version of Node on Red Hat's OpenShift PaaS.
 
-(Current) NodeJS Version: 4.2.4
+(Current) NodeJS Version: 4.2.6
 
 ## Steps to get the latest Node.js version running on OpenShift
 Create an account at [http://openshift.redhat.com/](http://openshift.redhat.com/)
